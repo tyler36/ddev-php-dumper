@@ -1,0 +1,4 @@
+name: php-dumper
+
+project_files:
+- docker-compose.php-dumper.yaml
