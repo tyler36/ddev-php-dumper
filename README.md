@@ -10,6 +10,7 @@
         - [Troubleshooting](#troubleshooting)
     - ["var-dump server" setup](#var-dump-server-setup)
 - [Usage](#usage)
+    - [Disable the service](#disable-the-service)
 - [Reference](#reference)
 
 ## What is ddev-php-dumper?
@@ -113,6 +114,22 @@ Example output:
 - Use `dump()` the command in your project.
 
 The output will be redirect and displayed in your configured server.
+
+### Disable the service
+
+To disable the service:
+
+```shell
+ddev service disable php-dumper
+ddev restart
+```
+
+To re-enable the service:
+
+```shell
+ddev service enable php-dumper
+ddev restart
+```
 
 ## Reference
 
