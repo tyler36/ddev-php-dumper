@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#ddev-generated
+## Description: Start a dump-server
+## Usage: dumper
+## Example: "dumper"
+
+/var/www/html/vendor/bin/var-dump-server
