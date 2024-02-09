@@ -2,3 +2,8 @@ name: php-dumper
 
 project_files:
 - docker-compose.php-dumper.yaml
+- commands/web/dumper
+
+# DDEV environment variables can be interpolated into these actions
+post_install_actions:
+- chmod +x commands/web/dumper

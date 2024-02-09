@@ -6,15 +6,18 @@
 - [What does this add-on do?](#what-does-this-add-on-do)
 - [Requirements](#requirements)
 - [Installation](#installation)
+    - [Docker "PHP Dump" setup](#docker-php-dump-setup)
+        - [Troubleshooting](#troubleshooting)
+    - ["var-dump server" setup](#var-dump-server-setup)
 - [Usage](#usage)
-- [Troubleshooting](#troubleshooting)
+    - [Disable the service](#disable-the-service)
+- [Reference](#reference)
 
 ## What is ddev-php-dumper?
 
-ddev-php-dumper allows you to manage and record PHP Symfony dumps.
-It does this by integrating the Docker Desktop extension [PHP Dumper](https://github.com/artifision/php-dumper-docker-extension) into DDEV project.
+"ddev-php-dumper" is a helper addon that redirects Symfony dump output to a server. Dumped data will no longer display inline on your site, but instead, be displayed in the terminal (var-dumper-server) or [PHP Dumper](https://github.com/artifision/php-dumper-docker-extension), a Desktop Docker extension.
 
-This allows you to:
+Using PHP Dumper offers several benefits:
 
 - auto-expand dumps to a specific level
 - filter dumps by time frame
@@ -25,24 +28,19 @@ This allows you to:
 
 ## What does this add-on do?
 
-1. Adds Docker host as an extra host in the web container.
-2. Sets environment variables to redirect "var_dump" output to PHP Dumper Docker extention.
+1. Sets environment variables to redirect "var_dump" output to PHP Dumper Docker extention.
+2. Includes helper function to start a PHP dump server.
+3. Adds Docker host as an extra host in the web container.
 
 ## Requirements
 
 - [DDEV](https://ddev.com)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - [symfony/var-dumper](https://symfony.com/doc/current/components/var_dumper.html)
+Requirements:
 
 If you project is based on Symfony (such as Laravel, Drupal), it may already include 'var-dumper'.
 
 ## Installation
-
-1. Install the PHP Dumper extension via [Docker Desktop GUI](https://docs.docker.com/desktop/extensions/marketplace/#install-an-extension) or using the following command.
-
-    ```shell
-    docker extension install artifision/php-dumper-docker-extension:latest
-    ```
 
 1. Install var-dumper, if you project does not already include it.
 
@@ -57,21 +55,84 @@ If you project is based on Symfony (such as Laravel, Drupal), it may already inc
     ddev restart
     ```
 
-## Usage
+Next, you need to decide what dump server to use.
 
-- Open PHP-dumper panel in Docker Desktop.
-- Use `dump()` command in your project.
-- For Laravel projects, use `dd()`.
+### Docker "PHP Dump" setup
 
-![Dump](images/php-dumper.png)
+Requirements:
 
-## Troubleshooting
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [PHP Dumper extension](https://github.com/artifision/php-dumper-docker-extension)
 
-- Visit the test page, <http://localhost:9913/dump> to check if the extension can correctly receive data.
-- Ensure `symfony/var-dumper` is installed and is the latest version.
+1. Install the PHP Dumper extension via [Docker Desktop GUI](https://docs.docker.com/desktop/extensions/marketplace/#install-an-extension) or using the following command.
 
     ```shell
-    composer update symfony/var-dumper
+    docker extension install artifision/php-dumper-docker-extension:latest
     ```
+
+2. Create or update `./.ddev/.env` with:
+
+    ```env
+    VAR_DUMPER_SERVER="host.docker.internal"
+    ```
+
+3. Restart DDEV
+
+    ```shell
+    ddev restart
+    ```
+
+4. Open PHP-dumper panel in Docker Desktop.
+
+Example output:
+![Dump](images/php-dumper.png)
+
+#### Troubleshooting
+
+Visit the test page, http://localhost:9913/dump to check if the extension can correctly receive data.
+
+### "var-dump server" setup
+
+1. Open a terminal window and to start the dump server.
+
+    ```shell
+    ddev dumper
+    ```
+
+2. The server should start and be listening on `tcp://localhost:9912`
+
+![alt text](images/ddev-dumper.png)
+
+Using a `dump()` command in your project will display the output.
+
+Example output:
+
+![Dump](images/var-dump-server.png)
+
+## Usage
+
+- Use `dump()` the command in your project.
+
+The output will be redirect and displayed in your configured server.
+
+### Disable the service
+
+To disable the service:
+
+```shell
+ddev service disable php-dumper
+ddev restart
+```
+
+To re-enable the service:
+
+```shell
+ddev service enable php-dumper
+ddev restart
+```
+
+## Reference
+
+For more information, see [The Dump Server](https://symfony.com/doc/current/components/var_dumper.html).
 
 **Contributed and maintained by [@tyler36](https://github.com/tyler36)**
