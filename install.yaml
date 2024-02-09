@@ -6,4 +6,4 @@ project_files:
 
 # DDEV environment variables can be interpolated into these actions
 post_install_actions:
-- chmod +x ~/.ddev/commands/web/dumper
+- chmod +x commands/web/dumper
