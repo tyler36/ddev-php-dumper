@@ -4,7 +4,3 @@ services:
         environment:
         - "VAR_DUMPER_FORMAT=server"
         - "VAR_DUMPER_SERVER=${VAR_DUMPER_SERVER:-localhost}:9912"
-        # The following is only require if using Docker Desktop PHP Dump extention.
-        # It does no harm elsewise so we'll leave it to make it easier to switch providers.
-        extra_hosts:
-        - "host.docker.internal:host-gateway"
