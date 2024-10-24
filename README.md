@@ -50,8 +50,21 @@ If you project is based on Symfony (such as Laravel, Drupal), it may already inc
 
 1. Install ddev-php-dump addon and restart to activate the addon.
 
+    For DDEV v1.23.5 or above run
+
+    ```shell
+    ddev add-on get tyler36/ddev-php-dumper
+    ```
+
+    For earlier versions of DDEV run
+
     ```shell
     ddev get tyler36/ddev-php-dumper
+    ```
+
+    Then restart your project
+
+    ```shell
     ddev restart
     ```
 
