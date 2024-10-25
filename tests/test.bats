@@ -26,8 +26,8 @@ teardown() {
   cd ${TESTDIR}
 
   ddev config --project-name=${PROJNAME}
-  echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
-  ddev get ${DIR}
+  echo "# ddev add-on get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
+  ddev add-on get ${DIR}
   ddev restart
 
   health_checks
@@ -37,8 +37,8 @@ teardown() {
   set -eu -o pipefail
   cd ${TESTDIR}
   ddev config --project-name=${PROJNAME}
-  echo "# ddev get tyler36/ddev-php-dumper with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
-  ddev get tyler36/ddev-php-dumper
+  echo "# ddev add-on get tyler36/ddev-php-dumper with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
+  ddev add-on get tyler36/ddev-php-dumper
   ddev restart
 
   health_checks
