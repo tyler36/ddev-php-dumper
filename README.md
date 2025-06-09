@@ -1,3 +1,4 @@
+[![add-on registry](https://img.shields.io/badge/DDEV-Add--on_Registry-blue)](https://addons.ddev.com)
 [![tests](https://github.com/tyler36/ddev-php-dumper/actions/workflows/tests.yml/badge.svg)](https://github.com/tyler36/ddev-php-dumper/actions/workflows/tests.yml)
 [![last commit](https://img.shields.io/github/last-commit/tyler36/ddev-php-dumper)](https://github.com/tyler36/ddev-php-dumper/commits)
 [![release](https://img.shields.io/github/v/release/tyler36/ddev-php-dumper)](https://github.com/tyler36/ddev-php-dumper/releases/latest)
