@@ -1,4 +1,4 @@
-[![tests](https://github.com/ddev/ddev-addon-template/actions/workflows/tests.yml/badge.svg)](https://github.com/ddev/ddev-addon-template/actions/workflows/tests.yml)
+[![tests](https://github.com/tyler36/ddev-php-dumper/actions/workflows/tests.yml/badge.svg)](https://github.com/tyler36/ddev-php-dumper/actions/workflows/tests.yml)
 
 # ddev-php-dumper <!-- omit in toc -->
 
