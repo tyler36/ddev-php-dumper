@@ -6,11 +6,11 @@
 - [What does this add-on do?](#what-does-this-add-on-do)
 - [Requirements](#requirements)
 - [Installation](#installation)
-    - [Docker "PHP Dump" setup](#docker-php-dump-setup)
-        - [Troubleshooting](#troubleshooting)
-    - ["var-dump server" setup](#var-dump-server-setup)
+  - [Docker "PHP Dump" setup](#docker-php-dump-setup)
+    - [Troubleshooting](#troubleshooting)
+  - ["var-dump server" setup](#var-dump-server-setup)
 - [Usage](#usage)
-    - [Disable the service](#disable-the-service)
+  - [Disable the service](#disable-the-service)
 - [Reference](#reference)
 
 ## What is ddev-php-dumper?
