@@ -1,4 +1,5 @@
 [![tests](https://github.com/tyler36/ddev-php-dumper/actions/workflows/tests.yml/badge.svg)](https://github.com/tyler36/ddev-php-dumper/actions/workflows/tests.yml)
+[![last commit](https://img.shields.io/github/last-commit/tyler36/ddev-php-dumper)](https://github.com/tyler36/ddev-php-dumper/commits)
 
 # ddev-php-dumper <!-- omit in toc -->
 
